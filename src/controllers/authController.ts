@@ -50,13 +50,9 @@ export const login = async (req: Request, res: Response) => {
       where: eq(users.email, email),
     })
 
-    if (!user) {
-      return res.status(401).json({ error: 'Invalid Credentials' })
-    }
-
     const isPasswordValid = await comparePassword(password, user.password)
 
-    if (!isPasswordValid) {
+    if (!isPasswordValid || !user) {
       return res.status(401).json({ error: 'Invalid Credentials' })
     }
 

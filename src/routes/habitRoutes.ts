@@ -1,6 +1,9 @@
 import { Router } from 'express'
+import { authenticatedToken } from '../middleware/auth.ts'
 
 const router = Router()
+
+router.use(authenticatedToken)
 
 router.get('/', (req, res) => {
   res.json({ message: 'Habits retrieved successfully' })

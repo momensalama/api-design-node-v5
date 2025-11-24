@@ -89,6 +89,7 @@ NOTES.md
 *.sqlite3
 *.db
 data/
+migrations/
 
 # Temporary files
 tmp/
